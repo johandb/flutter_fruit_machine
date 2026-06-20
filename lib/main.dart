@@ -113,8 +113,8 @@ class _SlotMachineScreenState extends State<SlotMachineScreen> {
       int currentItem = _controllers[i].hasClients ? _controllers[i].selectedItem : 0;
       int extraSpins = (random.nextInt(3) + 4) * _emojis.length;
       int finalTarget = currentItem + extraSpins + (emojiIndex - (currentItem % _emojis.length));
-      
-    SoundService.instance.playSound("spin.mp3");
+
+      SoundService.instance.playSound("spin.mp3");
 
       _controllers[i].animateToItem(
         finalTarget,
@@ -122,7 +122,6 @@ class _SlotMachineScreenState extends State<SlotMachineScreen> {
         curve: Curves.easeOutCubic,
       );
     }
-
 
     await Future.delayed(const Duration(milliseconds: 2500));
 
