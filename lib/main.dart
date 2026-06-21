@@ -105,6 +105,8 @@ class _SlotMachineScreenState extends State<SlotMachineScreen> {
     final random = Random();
     List<String> chosenItems = [];
 
+    SoundService.instance.playSound("spin.mp3");
+
     for (int i = 0; i < 3; i++) {
       String pickedEmoji = _weightedPool[random.nextInt(_weightedPool.length)];
       chosenItems.add(pickedEmoji);
@@ -113,8 +115,6 @@ class _SlotMachineScreenState extends State<SlotMachineScreen> {
       int currentItem = _controllers[i].hasClients ? _controllers[i].selectedItem : 0;
       int extraSpins = (random.nextInt(3) + 4) * _emojis.length;
       int finalTarget = currentItem + extraSpins + (emojiIndex - (currentItem % _emojis.length));
-
-      SoundService.instance.playSound("spin.mp3");
 
       _controllers[i].animateToItem(
         finalTarget,
@@ -191,7 +191,6 @@ class _SlotMachineScreenState extends State<SlotMachineScreen> {
           image: DecorationImage(
             image: AssetImage('images/casino.png'), // Jouw casino plaatje
             fit: BoxFit.cover, // Zorgt dat de afbeelding het hele scherm vult
-            // Dit filter maakt de foto iets donkerder zodat het wiel mooi naar voren knalt
             //colorFilter: ColorFilter.mode(
             //Colors.black45, // 45% zwart filter over de foto
             //BlendMode.darken,
