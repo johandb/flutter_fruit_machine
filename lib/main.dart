@@ -191,10 +191,10 @@ class _SlotMachineScreenState extends State<SlotMachineScreen> {
           image: DecorationImage(
             image: AssetImage('images/casino.png'), // Jouw casino plaatje
             fit: BoxFit.cover, // Zorgt dat de afbeelding het hele scherm vult
-            //colorFilter: ColorFilter.mode(
-            //Colors.black45, // 45% zwart filter over de foto
-            //BlendMode.darken,
-            //),
+            colorFilter: ColorFilter.mode(
+              Colors.black45, // 45% zwart filter over de foto
+              BlendMode.darken,
+            ),
           ),
         ),
         child: Container(
@@ -390,7 +390,7 @@ class _SlotMachineScreenState extends State<SlotMachineScreen> {
                   const SizedBox(height: 20),
                   // Prijzentabel titel
                   const Text(
-                    "📊 Prijzentabel (Jackpot = Vermenigvuldiger x Inzet)",
+                    "📊 Prijzentabel (Jackpot = Multiplier x Inzet)",
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
